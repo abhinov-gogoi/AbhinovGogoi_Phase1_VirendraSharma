@@ -12,7 +12,12 @@ A simple file handling project in Java
 ## Using the application
 Welcome screen displays the application name and the developer details.
 
+<img width="964" alt="java 8 and prio java 8  array review example" src="https://github.com/jaimehernan95/arrayReview-java/blob/master/images/%20arrayExample.png">
+
 The details of the user interface are shown to the user. The user has to select from the options listed 
+
+<img width=“964” alt=“screenshot1” src=“https://github.com/abhinov-gogoi/AbhinovGogoi_Phase1_VirendraSharma/blob/main/src/images/screenshot1.png”>
+
 
  
     1. The first option returns the current file names in ascending order. The main directory can be assigned in Main class.
