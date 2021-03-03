@@ -116,9 +116,10 @@ public class LockedMe {
         File filepath = new File(folder_name +"/"+filename);
         String[] list = folder_name.list();
         for (String file: list) {
-            if (filename.equalsIgnoreCase(file))
+            if (filename.equalsIgnoreCase(file)) {
                 System.out.println("File " + filename + " already exists at " + folder_name);
                 return;
+            }
         }
         filepath.createNewFile();
         System.out.println("File "+filename+" added to "+ folder_name);
