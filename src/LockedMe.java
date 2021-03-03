@@ -4,13 +4,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class LockedMe {
-    static final String DIRECTORY = "src/resources";
-    File folder_name = new File(DIRECTORY);
+    static String DIRECTORY;
+    File folder_name;
+
+    public LockedMe() {
+        DIRECTORY = System.getProperty("user.dir");
+        folder_name = new File(DIRECTORY);
+        if (!folder_name.exists())
+            folder_name.mkdirs();
+        System.out.println("DIRECTORY : "+ folder_name.getAbsolutePath());
+    }
 
     private static final String WELCOME_PROMPT =
             "\n*****************  LockedMe.com *******************"+
-                    "\n***************** Abhinov Gogoi *******************"+
-                    "\n\nDIRECTORY : "+ DIRECTORY;
+                    "\n***************** Abhinov Gogoi *******************";
 
     private static final String MAIN_MENU_PROMPT =
             "\nMAIN MENU - Select any of the following: \n"+
@@ -30,7 +37,6 @@ public class LockedMe {
         try{
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
-
             switch (option){
                 case 1 : {
                     showFiles();
@@ -93,7 +99,7 @@ public class LockedMe {
         }
     }
 
-    public void showFiles() {
+    void showFiles() {
         if (folder_name.list().length==0)
             System.out.println("The folder is empty");
         else {
