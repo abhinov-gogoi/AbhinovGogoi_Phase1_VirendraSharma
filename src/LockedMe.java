@@ -9,7 +9,7 @@ public class LockedMe {
 
     public LockedMe() {
         DIRECTORY = System.getProperty("user.dir");
-        folder_name = new File(DIRECTORY);
+        folder_name = new File(DIRECTORY+"/files");
         if (!folder_name.exists())
             folder_name.mkdirs();
         System.out.println("DIRECTORY : "+ folder_name.getAbsolutePath());
@@ -17,7 +17,7 @@ public class LockedMe {
 
     private static final String WELCOME_PROMPT =
             "\n*****************  LockedMe.com *******************"+
-                    "\n***************** Abhinov Gogoi *******************";
+                    "\n***************** Abhinov Gogoi *******************\n";
 
     private static final String MAIN_MENU_PROMPT =
             "\nMAIN MENU - Select any of the following: \n"+
