@@ -68,7 +68,7 @@ public class LockedMe {
                 }
                 case 'b' : {
                     System.out.println("↳ Deleting a file...Please Enter a File Name : ");
-                    String filename = scanner.next();
+                    String filename = scanner.next().trim();
                     deleteFile(filename);
                     break;
                 }
@@ -93,20 +93,8 @@ public class LockedMe {
         }
     }
 
-    public boolean isEmptyFolder(){
-        String[] list = folder_name.list();
-        return list==null;
-    }
-
-    public String[] filesInFolder() {
-        if (isEmptyFolder())
-            return new String[]{""};
-        else
-            return folder_name.list();
-    }
-
     public void showFiles() {
-        if (isEmptyFolder())
+        if (folder_name.list().length==0)
             System.out.println("The folder is empty");
         else {
             String[] list = folder_name.list();
@@ -123,10 +111,11 @@ public class LockedMe {
         String[] list = folder_name.list();
         for (String file: list) {
             if (filename.equalsIgnoreCase(file))
-                System.out.println("File "+filename+" already exists at "+ folder_name);
-            else if(filepath.createNewFile())
-                System.out.println("File "+filename+" added to "+ folder_name);
+                System.out.println("File " + filename + " already exists at " + folder_name);
+                return;
         }
+        filepath.createNewFile();
+        System.out.println("File "+filename+" added to "+ folder_name);
     }
 
     void deleteFile(String filename) {
@@ -152,7 +141,6 @@ public class LockedMe {
         System.out.println("File NOT found (FNF)");
     }
 
-    // Driver/Launcher Method
     public static void main(String[] args) {
         System.out.println(WELCOME_PROMPT);
         LockedMe menu = new LockedMe();
