@@ -43,13 +43,11 @@ public class LockedMe {
                     System.out.println("Thank You");
                     System.exit(0);
                 }
-                default : {
-                    showPrimaryMenu();
-                }
+                default: showPrimaryMenu();
             }
         }
         catch (Exception e){
-            System.out.println("Please enter 1, 2 or 3\n");
+            System.out.println("Please enter 1, 2 or 3");
             showPrimaryMenu();
         }
     }
@@ -64,7 +62,7 @@ public class LockedMe {
             switch (option){
                 case 'a' : {
                     System.out.println("↳ Adding a file...Please Enter a File Name : ");
-                    String filename = scanner.next().toLowerCase().trim();
+                    String filename = scanner.next().trim().toLowerCase();
                     addFile(filename);
                     break;
                 }
@@ -85,15 +83,12 @@ public class LockedMe {
                     showPrimaryMenu();
                     break;
                 }
-                default : {
-                    System.out.println("Please enter a, b, c or d");
-                }
+                default : System.out.println("Please enter a, b, c or d");
             }
+            showSecondaryMenu();
         }
         catch (Exception e){
-            System.out.println("   Please enter a, b, c or d");
-        }
-        finally {
+            System.out.println("Please enter a, b, c or d");
             showSecondaryMenu();
         }
     }
@@ -101,6 +96,13 @@ public class LockedMe {
     public boolean isEmptyFolder(){
         String[] list = folder_name.list();
         return list==null;
+    }
+
+    public String[] filesInFolder() {
+        if (isEmptyFolder())
+            return new String[]{""};
+        else
+            return folder_name.list();
     }
 
     public void showFiles() {
