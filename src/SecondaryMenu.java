@@ -23,17 +23,17 @@ public class SecondaryMenu {
             switch (option){
                 case 'a' : {
                     System.out.println("   ↳ Adding a file...");
-                    files.addFile(files.takeFilenameInput());
+                    files.addFile(files.takeFilenameInput(false));
                     showSecondaryMenu();
                 }
                 case 'b' : {
                     System.out.println("   ↳ Deleting a file...");
-                    files.deleteFile(files.takeFilenameInput());
+                    files.deleteFile(files.takeFilenameInput(true));
                     showSecondaryMenu();
                 }
                 case 'c' : {
                     System.out.println("   ↳ Searching a file...");
-                    files.searchFile(files.takeFilenameInput());
+                    files.searchFile(files.takeFilenameInput(true));
                     showSecondaryMenu();
                 }
                 case 'd' : {

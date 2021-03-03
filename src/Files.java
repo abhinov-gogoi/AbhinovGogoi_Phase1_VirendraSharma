@@ -43,8 +43,9 @@ public class Files {
     void deleteFile(String filename) {
         File file = new File(pathname+"/"+filename);
 
-        if (file.delete())
-            System.out.println("    File \""+filename+"\" deleted from "+ pathname +"\n");
+        if (fileExistsCaseSensitive(pathname+"/"+filename) && file.delete()) {
+            System.out.println("    File \"" + filename + "\" deleted from " + pathname + "\n");
+        }
         else
             System.out.println("    Delete Operation failed. FILE NOT FOUND\n");
     }
@@ -52,24 +53,38 @@ public class Files {
     void searchFile(String filename) {
         File file = new File(pathname+"/"+filename);
 
-        if(file.exists())
+        if(fileExistsCaseSensitive(pathname+"/"+filename))
             System.out.println("    FOUND : File \""+filename+"\" exists at "+ pathname +"\n");
         else
             System.out.println("    File NOT found (FNF)\n");
     }
 
-    public String takeFilenameInput() {
+    public String takeFilenameInput(boolean case_sensitivity) {
         System.out.print("    Please enter a filename : ");
         try{
-            String filename = scanner.nextLine().toLowerCase().trim();
+            String filename;
+            if (case_sensitivity)
+                filename = scanner.nextLine().trim();
+            else
+                filename = scanner.nextLine().toLowerCase().trim();
+
             if (filename.equals(""))
-                return takeFilenameInput();
+                return takeFilenameInput(case_sensitivity);
             else
                 return filename;
         }
         catch (Exception e) {
             System.out.println("    Something went wrong");
         }
-        return takeFilenameInput();
+        return takeFilenameInput(case_sensitivity);
+    }
+
+    public static boolean fileExistsCaseSensitive(String path) {
+        try {
+            File file = new File(path);
+            return file.exists() && file.getCanonicalFile().getName().equals(file.getName());
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
