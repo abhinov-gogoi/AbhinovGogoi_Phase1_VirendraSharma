@@ -17,7 +17,7 @@ Welcome screen displays the application name and the developer details.
 The details of the user interface are shown to the user. The user has to select from the options listed 
 
  
-    1. The first option returns the current file names in ascending order. The main directory can be assigned in Main class.
+    1. The first option returns the current file names in ascending order. The main directory can be assigned in LockedMe class.
   
 
     2. The second option returns the details of the user interface options displaying the following:
@@ -42,5 +42,5 @@ Project is created with:
 Run this as a Java project
 
 ```
-Launcher or main() method can be found in Main class under src folder
+Launcher or main() method can be found in LockedMe class under src folder
 ```
