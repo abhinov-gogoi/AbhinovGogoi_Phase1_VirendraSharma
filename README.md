@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Using the application](#using-the-application)
 * [Technologies](#technologies)
+* [Sprint Planning](#sprint-planning)
 * [Setup](#setup)
 
 ## General info
@@ -36,6 +37,9 @@ The details of the user interface are shown to the user. The user has to select 
 Project is created with:
 * Java 8
 * IntelliJ IDE
+
+## Sprint Planning
+https://trello.com/b/aaO33cot/lockedmecom
 
 	
 ## Setup
