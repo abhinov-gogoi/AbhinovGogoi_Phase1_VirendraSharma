@@ -67,19 +67,19 @@ public class LockedMe {
 
             switch (option){
                 case 'a' : {
-                    System.out.println("↳ Adding a file...Please Enter a File Name : ");
+                    System.out.print("↳ Adding a file...Please Enter a File Name : ");
                     String filename = scanner.next().trim().toLowerCase();
                     addFile(filename);
                     break;
                 }
                 case 'b' : {
-                    System.out.println("↳ Deleting a file...Please Enter a File Name : ");
+                    System.out.print("↳ Deleting a file...Please Enter a File Name : ");
                     String filename = scanner.next().trim();
                     deleteFile(filename);
                     break;
                 }
                 case 'c' : {
-                    System.out.println("↳ Searching a file...Please Enter a File Name : ");
+                    System.out.print("↳ Searching a file...Please Enter a File Name : ");
                     String filename = scanner.next().trim();
                     searchFile(filename);
                     break;
